@@ -1,0 +1,16 @@
+#cloud-config
+users:
+  - name: appuser
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD6+0J945+VVX88R2+WiDKxY4iDdd9V9Q5mBddqdKKkKNiHUoYLZZ/NxrTn7lyQK7l1gslJVwq5C56Hv3lUINIq9HB+jUZ6mGWQi62DGMuR4VHHW4eG55Lg0sjoDXD/EkfvbFfwLr8vVS5xzdobOsz/czMN/hq+91oKCFwc7NZsNp4bdzvdlHXpS9weSjOyPRp271YlGxx8m4kcBPsPxMvF7plQHXOavglcwioEeDPThaFkBVOkDKwRfgENOGRCeWwYYW2jSjCHKpLRlNJAJHicTiGG4H6kTdSAPsYpraB6b91S8shdWD7lRY/q8sT19a0PiB9r5COVocDjCNjIni0n unwork@MacBook-Pro
+
+runcmd:
+ - wget -q https://raw.githubusercontent.com/Otus-DevOps-2022-02/worlak2_infra/cloud-testapp/install_ruby.sh
+ - wget -q https://raw.githubusercontent.com/Otus-DevOps-2022-02/worlak2_infra/cloud-testapp/install_mongodb.sh
+ - wget -q https://raw.githubusercontent.com/Otus-DevOps-2022-02/worlak2_infra/cloud-testapp/deploy.sh
+ - bash install_ruby.sh
+ - bash install_mongodb.sh
+ - bash deploy.sh
